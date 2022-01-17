@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyA8QMeX7U57BkAQWG2RyQpYsoHGAp0jXwg",
+    authDomain: "carealot-homes.firebaseapp.com",
+    databaseURL: "https://carealot-homes-default-rtdb.firebaseio.com",
+    projectId: "carealot-homes",
+    storageBucket: "carealot-homes.appspot.com",
+    messagingSenderId: "635466150188",
+    appId: "1:635466150188:web:b7083f4cb374a372197c89",
+    measurementId: "G-QD0DDQT69Y"
+  }
 };
 
 /*
