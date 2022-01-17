@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp } from "firebase/app"
 import {environment} from "../environments/environment";
+import {CoreModule} from "./core/core.module";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import {environment} from "../environments/environment";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
