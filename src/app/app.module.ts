@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { initializeApp } from "firebase/app"
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -16,3 +18,5 @@ import { AppComponent } from './app.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export const app = initializeApp(environment.firebaseConfig);
