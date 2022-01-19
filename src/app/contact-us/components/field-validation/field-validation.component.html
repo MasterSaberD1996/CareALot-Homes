@@ -1,0 +1,16 @@
+<div
+  class="form-element-wrapper"
+  [ngClass]="{
+		'is-invalid': isInvalid(),
+		'is-valid': isValid(),
+		'validation-icon': showValidationIcon,
+		'is-select': isCustomSelect,
+		'is-disabled': isControlDisabled()
+	}"
+  #contentWrapper
+>
+  <ng-content></ng-content>
+</div>
+<div class="form-error" *ngIf="isInvalid() && showErrorOverride && errorMessage">
+  <span>{{ errorMessage }}</span>
+</div>
