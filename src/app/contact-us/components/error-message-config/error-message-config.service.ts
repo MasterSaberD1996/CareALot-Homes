@@ -26,4 +26,8 @@ export class ErrorMessageConfigService {
     invalidStart: "Please do not include the country code in your phone number",
     notValidEntry: "Please enter your phone number without any special characters"
   }
+
+  public readonly location: IErrorMessage = {
+    required: "Please select a location"
+  }
 }

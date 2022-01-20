@@ -25,6 +25,11 @@ export class ContactPageComponent implements OnInit {
   public get phoneControl(): FormControl {
     return this.contactForm?.get("phone") as FormControl;
   }
+  public get locationControl(): FormControl {
+    return this.contactForm.get("location") as FormControl;
+  }
+
+  public isSelectOpen: boolean = false;
 
   constructor() { }
 
@@ -32,8 +37,9 @@ export class ContactPageComponent implements OnInit {
     this.contactForm = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.email, Validators.required]),
+      phone: new FormControl(null, [Validators.required, Validators.minLength(14), this.countryCodeValidator]),
+      location: new FormControl(null, [Validators.required]),
       message: new FormControl(null, [Validators.required]),
-      phone: new FormControl(null, [Validators.required, Validators.minLength(14), this.countryCodeValidator])
     })
   }
 
@@ -52,14 +58,17 @@ export class ContactPageComponent implements OnInit {
   }
 
   public submitMessage(): void {
+    if (!this.contactForm.valid) {
+      return;
+    }
     if (!environment.production) {
       connectFunctionsEmulator(functions, 'localhost', 5001)
     }
     const sendEmail = httpsCallable(functions, "sendEmail");
-    const {name, email, message, phone} = this.contactForm.value;
+    const {name, email, message, phone, location} = this.contactForm.value;
     const request = {
-      toEmail: environment.floridaLocationEmail,
-      location: "Erika's House ALF",
+      toEmail: location === 'florida' ? environment.floridaLocationEmail : environment.utahLocationEmail,
+      location: location === 'florida' ? "Erika's House ALF" : 'Beehive Homes of Roy',
       message: `${message}<br/><br>${name}<br>${email}<br>${phone}`
     }
     sendEmail(request)
@@ -71,5 +80,13 @@ export class ContactPageComponent implements OnInit {
       .catch((error) => {
         console.error(error);
       });
+  }
+
+  public setClosed(): void {
+    this.isSelectOpen = false;
+  }
+
+  public toggleFocus(): void {
+    this.isSelectOpen = !this.isSelectOpen;
   }
 }
