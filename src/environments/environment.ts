@@ -14,7 +14,9 @@ export const environment = {
     appId: "1:635466150188:web:b7083f4cb374a372197c89",
     measurementId: "G-QD0DDQT69Y"
   },
-  recaptchaKey: "6LdxLx0eAAAAAGtHuXpdUg1sLbkL7PbbB06gFB_s"
+  recaptchaKey: "6LdxLx0eAAAAAGtHuXpdUg1sLbkL7PbbB06gFB_s",
+  floridaLocationEmail: "d.mcpherson.home@gmail.com",
+  utahLocationEmail: "d.mcpherson.home@gmail.com"
 };
 
 /*

@@ -10,5 +10,7 @@ export const environment = {
     appId: "1:635466150188:web:c67198d40e393f83197c89",
     measurementId: "G-X2L7FBLGZ1"
   },
-  recaptchaKey: "6LdqLR0eAAAAADBtRj6ZtklVHqHiv3hssC79Gf9i"
+  recaptchaKey: "6LdqLR0eAAAAADBtRj6ZtklVHqHiv3hssC79Gf9i",
+  floridaLocationEmail: "erikashousealf@gmail.com",
+  utahLocationEmail: "lrivera@beehivehomes.com"
 };
