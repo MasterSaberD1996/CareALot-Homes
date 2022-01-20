@@ -20,7 +20,7 @@
         <app-field-validation [control]="phoneControl" fieldName="phone">
           <input type="text" class="form-control" formControlName="phone" appAnimatedLabel="Phone" appPhoneFormat [formControl]="phoneControl">
         </app-field-validation>
-        <button class="btn btn-success">Submit</button>
+        <button class="btn btn-success" (click)="submitMessage()">Submit</button>
       </form>
     </div>
   </div>
