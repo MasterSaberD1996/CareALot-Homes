@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+import { functions } from '../../../app.module';
+import {connectFunctionsEmulator, httpsCallable} from "firebase/functions";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-contact-page',
@@ -46,5 +49,27 @@ export class ContactPageComponent implements OnInit {
       return value === '1' || value === '+' ? {invalidStart: true} : null
     }
     return null;
+  }
+
+  public submitMessage(): void {
+    if (!environment.production) {
+      connectFunctionsEmulator(functions, 'localhost', 5001)
+    }
+    const sendEmail = httpsCallable(functions, "sendEmail");
+    const {name, email, message, phone} = this.contactForm.value;
+    const request = {
+      toEmail: environment.floridaLocationEmail,
+      location: "Erika's House ALF",
+      message: `${message}<br/><br>${name}<br>${email}<br>${phone}`
+    }
+    sendEmail(request)
+      .then((response) => {
+        if (response.data && response.data === "sent") {
+          console.log("sent email send code for updating page")
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 }

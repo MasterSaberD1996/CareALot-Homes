@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { initializeApp } from "firebase/app"
 import {environment} from "../environments/environment";
 import {CoreModule} from "./core/core.module";
+import { getFunctions} from "firebase/functions";
 
 @NgModule({
   declarations: [
@@ -22,3 +23,4 @@ import {CoreModule} from "./core/core.module";
 export class AppModule { }
 
 export const app = initializeApp(environment.firebaseConfig);
+export const functions = getFunctions(app);
