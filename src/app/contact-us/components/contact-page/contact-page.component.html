@@ -13,12 +13,18 @@
         <app-field-validation [control]="emailControl" [fieldName]="'email'">
           <input type="text" class="form-control" formControlName="email" appAnimatedLabel="Email">
         </app-field-validation>
+        <app-field-validation [control]="phoneControl" fieldName="phone">
+          <input type="text" class="form-control" formControlName="phone" appAnimatedLabel="Phone" appPhoneFormat [formControl]="phoneControl">
+        </app-field-validation>
+        <app-field-validation [control]="locationControl" fieldName="location">
+          <select formControlName="location" class="form-control" appAnimatedLabel="Location" (click)="toggleFocus()" (blur)="setClosed()" [ngClass]="{'open': isSelectOpen}">
+            <option value="florida">Erika's House ALF</option>
+            <option value="utah">Beehive Homes of Roy</option>
+          </select>
+        </app-field-validation>
         <app-field-validation [control]="messageControl" fieldName="message">
           <textarea class="form-control" formControlName="message"
                     placeholder="Type your question or request (Required)"></textarea>
-        </app-field-validation>
-        <app-field-validation [control]="phoneControl" fieldName="phone">
-          <input type="text" class="form-control" formControlName="phone" appAnimatedLabel="Phone" appPhoneFormat [formControl]="phoneControl">
         </app-field-validation>
         <button class="btn btn-success" (click)="submitMessage()">Submit</button>
       </form>
