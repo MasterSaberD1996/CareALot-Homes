@@ -27,7 +27,7 @@ export const sendEmail = functions.https.onRequest((request, response) => {
     const mailOptions = {
       from: "CareALot Homes <homes.carealot@gmail.com>",
       to: dest,
-      subject: "Request for info for" + request.body.data.location,
+      subject: "Request for info for " + request.body.data.location,
       html: `<p>${request.body.data.message}</p>`,
     };
 
