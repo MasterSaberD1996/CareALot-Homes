@@ -58,6 +58,7 @@ export class ContactPageComponent implements OnInit {
   }
 
   public submitMessage(): void {
+    this.contactForm.markAllAsTouched();
     if (!this.contactForm.valid) {
       return;
     }
