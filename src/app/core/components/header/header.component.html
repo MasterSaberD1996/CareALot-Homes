@@ -1,18 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="vm$ | async as vm">
-  <a class="navbar-brand" routerLink="/">
-    <img [src]="vm" alt="CareALot Homes" width="60px">
-  </a>
-  <button class="navbar-toggler" type="button" (click)="toggleMenu()">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="navbar-collapse" [ngClass]="menuOpen ? 'expand' : 'collapse'">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a routerLink="/" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active" >
-        <a routerLink="/contact" class="nav-link">Contact us</a>
-      </li>
-    </ul>
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <img [src]="vm" alt="CareALot Homes" width="120px">
+    </a>
+    <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse" [ngClass]="menuOpen ? 'expand' : 'collapse'">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a routerLink="/" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/contact" class="nav-link">Contact us</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
