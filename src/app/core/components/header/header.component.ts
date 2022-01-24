@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.vm$ = this.imageService.getSafeImage("Method Draw Image.png")
+    this.vm$ = this.imageService.getSafeImage("carealotlogo.svg")
   }
 
   public toggleMenu(): void {
