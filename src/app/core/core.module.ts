@@ -5,8 +5,6 @@ import {RouterModule} from "@angular/router";
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 
-
-
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -17,9 +15,9 @@ import { HomeComponent } from './components/home/home.component';
         HeaderComponent,
         FooterComponent
     ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule,
+    ]
 })
 export class CoreModule { }
